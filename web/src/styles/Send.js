@@ -14,12 +14,17 @@ export const SendDıv = styled.form`
     }
 
  input{
-     width:75%;
+     width:85%;
      background:transparent;
      border:none;
      outline:none;
      color:white;
      z-index:5;
+
+     @media (max-width: 500px)
+    {
+        width:75%;
+    }
  }
 
  button{
