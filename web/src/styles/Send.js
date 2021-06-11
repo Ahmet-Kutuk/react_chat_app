@@ -8,8 +8,13 @@ export const SendDıv = styled.form`
  height:50px;
  border-radius:0px 0px 15px 15px;
 
+ @media (max-width: 500px)
+    {
+        width:350px;
+    }
+
  input{
-     width:85%;
+     width:75%;
      background:transparent;
      border:none;
      outline:none;

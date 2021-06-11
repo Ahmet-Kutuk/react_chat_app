@@ -7,6 +7,12 @@ height:600px;
 position:relative;
 overflow-x:hidden;  
 
+@media (max-width: 500px)
+    {
+        width:350px;
+        height:550px;
+    }
+
 `
 
 export const Content = styled.div`
@@ -20,12 +26,14 @@ export const Content = styled.div`
     left:15px;    
     color:white;
 
+    @media (max-width: 500px)
+    {
+        max-width:200px;
+    }
+   
+
     &+&{
         margin-top:20px;
-
-        .name{
-            color:${props => props.color[5]}
-        }
     }
 
 `
