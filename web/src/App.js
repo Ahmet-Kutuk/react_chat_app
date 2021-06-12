@@ -6,7 +6,7 @@ import Send from "./Compoments/Send";
 
 const socket = io.connect("http://localhost:4000");
 function App() {
-  const [state, setState] = useState({ message: "", name: "" });
+  const [user, setUser] = useState({ message: "", name: "" });
   const [chat, setChat] = useState([]);
 
   useEffect(() => {
@@ -16,23 +16,23 @@ function App() {
   }, [chat]);
 
   const onTextChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const onMessageSubmit = (e) => {
     e.preventDefault();
-    const { name, message } = state;
+    const { name, message } = user;
     socket.emit("message", { name, message });
-    setState({ message: "", name });
+    setUser({ message: "", name });
   };
 
   return (
     <div className="App">
-      <Header name={state.name} action={onTextChange} />
+      <Header name={user.name} action={onTextChange} />
       <MessageBox chat={chat}></MessageBox>
       <Send
         action={onMessageSubmit}
-        message={state.message}
+        message={user.message}
         text={onTextChange}
       />
     </div>
